@@ -1,7 +1,8 @@
-export class Tramites {
+export class TramitesModel {
 
     id: string;
     tipoTramite: string;
+    numeroAsociado: string;
     nombre: string;
     apellido: string;
     telefono: string;
@@ -19,6 +20,7 @@ export class Tramites {
     constructor() {
         this.estado = false;
         this.id = "";
+        this.numeroAsociado="";
         this.tipoTramite = "";
         this.nombre = "";
         this.apellido = "";

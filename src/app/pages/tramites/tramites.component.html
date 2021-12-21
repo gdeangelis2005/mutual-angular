@@ -1,3 +1,285 @@
-<p>
-  tramites works!
-</p>
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <hr>
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
+
+      <div class="form-group row ">
+        <label class="col-sm-2 col-form-label">Tipo de Tramite</label>
+        <div class="col-sm-10">
+
+        <select  class="form-control"
+           type="select"
+           placeholder="tipoTramite"
+           formControlName="tipoTramite"
+           name="tipoTramite">
+  
+          <option value="01">Ayuda economica de Emergencia</option>
+          <option value="02">Reintegro Oftolmologia y Medicamentos</option>
+          <option value="03">Subsidios</option>
+        </select>
+
+      </div>
+    </div>
+     
+    <div class="form-group row ">
+      <label class="col-sm-2 col-form-label">Asociado</label>
+      <div class="col-sm-10">
+
+    <input class="form-control"
+           type="text"
+           placeholder="numeroAsociado"
+           formControlName="numeroAsociado"
+           [class.is-invalid]="numeroAsociadoNoValido"
+           name="numeroAsociado">
+
+     <small *ngIf="nombreNoValido" class="text-danger">
+            Dato Obligatorio
+          </small>
+            
+   
+          </div>  
+   </div>
+
+
+
+
+
+      <div class="form-group row ">
+          <label class="col-sm-2 col-form-label">Nombre</label>
+          <div class="col-sm-10">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre"
+               formControlName="nombre"
+               [class.is-invalid]="nombreNoValido"
+               name="nombre">
+
+         <small *ngIf="nombreNoValido" class="text-danger">
+                Dato Obligatorio
+              </small>
+                
+       
+              </div>  
+       </div>
+
+      <div class="form-group row ">
+        <label class="col-sm-2 col-form-label">Apellido</label>
+        <div class="col-sm-10">
+        <input class="form-control"
+               type="text"
+               placeholder="Apellido "
+               formControlName="apellido"
+               [class.is-invalid]="apellidoNoValido"
+               name="apellido">
+               <small *ngIf="apellidoNoValido" class="text-danger">
+                Dato Obligatorio
+              </small>
+
+              </div>           
+    </div>
+
+  
+      <div class="form-group row ">
+        <label class="col-sm-2 col-form-label">Direccion</label>
+        <div class="col-sm-10">
+
+      <input type="text"
+             class="form-control"
+             placeholder="Direccion"
+             formControlName="direccion"
+             [class.is-invalid]="direccionNoValido"
+             name="direccion">
+             <small *ngIf="direccionNoValido" class="text-danger">
+              Dato Obligatorio
+            </small>
+
+            </div>
+
+      </div>
+
+    <div class="form-group row ">
+      <label class="col-sm-2 col-form-label">Localidad</label>
+      <div class="col-sm-10">
+
+    <input type="text"
+           class="form-control"
+           placeholder="Localidad"
+           formControlName="localidad"
+           [class.is-invalid]="localidadNoValido"
+           name="localidad">
+           <small *ngIf="localidadNoValido" class="text-danger">
+            Dato Obligatorio
+          </small>
+
+          </div>
+     </div>
+
+
+     <div class="form-group row ">
+            <label class="col-sm-2 col-form-label">Telefono</label>
+      <div class="col-sm-10">
+      
+          <input type="text"
+                 class="form-control"
+		             placeholder="Telefono"
+		             formControlName="telefono"
+                 [class.is-invalid]="telefonoNoValido"
+                 name="telefono">
+                 <small *ngIf="telefonoNoValido" class="text-danger">
+                  Dato Obligatorio
+                </small>
+      
+      </div>
+    </div>
+
+
+
+    <div class="form-group row ">
+          <label class="col-sm-2 col-form-label">Email</label>
+     <div class="col-sm-10">
+
+        <input type="text"
+               class="form-control"
+               name="email"
+               placeholder="Email"
+               [class.is-invalid]="emailNoValido"
+	            formControlName="email">
+              <small *ngIf="emailNoValido" class="text-danger">
+                Dato Obligatorio
+              </small>
+
+       </div>
+
+      </div>
+
+      
+      <div class="form-group row ">
+        <label class="col-sm-2 col-form-label">CBU</label>
+   <div class="col-sm-10">
+
+      <input type="text"
+             class="form-control"
+             name="cbu"
+             placeholder="cbu"
+             [class.is-invalid]="cbuNoValido"
+            formControlName="cbu">
+            <small *ngIf="cbuNoValido" class="text-danger">
+              Dato Obligatorio
+            </small>
+
+     </div>
+
+    </div>
+
+
+   
+
+
+
+       <div class="form-group row ">
+        <label class="col-sm-2 col-form-label">Observaciones</label>
+        <div class="col-sm-10">
+
+         <input type="text"
+           class="form-control"
+           name="observaciones"
+           placeholder="Observaciones"
+           formControlName="observaciones">
+         
+        </div>
+      </div>
+
+      <hr>
+
+<!--      <div class="form-group text-center">
+      
+      <input type="file" class="custom-file-input form-control" id="files" multiple (change)="detectFiles($event)" accept="image/x-png,image/jpeg">
+
+      <div class="images-preview mt-2" *ngIf="photos.length">
+          <div formArrayName="photos" *ngFor="let photo of photos.controls; let i = index;">
+              <div [formGroupName]="i">
+                  <img [src]="photo.controls.url.value" class="card-img-top" alt="Image Preview">
+              </div>
+          </div>
+      </div>
+    </div>
+-->
+
+<div class="form-group text-center">
+
+<input type="file" class="file-input" 
+           id="files" 
+           multiple (change)="detectFiles($event)" 
+           accept="image/x-png,image/jpeg"
+           name="photos"
+           placeholder="photos"
+           formControlName="photos">
+
+           
+<!--<div class="images-preview mt-2" *ngIf="photos.length">
+  <div formArrayName="photos" *ngFor="let photo of photos.controls; let i = index;">
+ 
+        <div [formGroupName]="i">
+            <img [src]="photo.value.url" class="card-img-top" alt="Image Preview" width="200px" height="300px" >
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">{{photo.value.file.name}}</h6>
+        </div>
+   </div>
+</div> -->  
+ <div class="images-preview mt-2" *ngIf="photos.length">
+  <div formArrayName="photos" *ngFor="let photo of photos.controls; let i = index;">
+
+  
+<div class="card" style="width: 18rem;">
+  <img [src]="photo.value.url" class="card-img-top" alt="Image Preview" >
+  <div class="card-body">
+    <h6 class="card-title">{{photo.value.file.name}}</h6>
+       
+<!--    <p class="card-text">Some quick example text   to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+   </div>
+ </div>
+</div>  
+
+
+<!--<div>
+  <label for="">Preview</label>
+  <div>
+      <img width="100px" [src]="imagenPrevia" alt="">
+  </div>
+</div>
+
+<div class="wrapper-button">
+  <button class="w-100" [disabled]="loading" (click)="loadImages()">
+
+      {{(loading) ? 'Cargando...' : 'Subir'}}
+  </button>
+</div> -->
+
+</div>
+
+<hr>
+      <div class="form-group text-left">
+        <button class="btn btn-outline-warning" type="button" (click)="clearImage()">Eliminar Adjuntos</button> 
+      </div> 
+        
+      <div class="form-group text-center">
+      
+        <button type="submit"
+                class="btn btn-primary w-25">
+          <i class="fa fa-save text-center"></i>
+          Guardar
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
+
+

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Tramites } from '../models/tramites.model';
+import { TramitesModel } from '../models/tramites.model';
 import { map, delay } from 'rxjs/operators';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class TramiteService {
   constructor( private http: HttpClient ) { }
 
 
-  crearTramite(tramite:  Tramites ) {
+  crearTramite(tramite:  TramitesModel ) {
 
     return this.http.post(`${ this.url }/tramite.json`,  tramite)
             .pipe(
@@ -23,19 +23,38 @@ export class TramiteService {
                 return  tramite;
               })
             );
+    } 
 
-  }  actualizarTramite(tramite:  Tramites ) {
-
+   actualizarTramite(tramite:  TramitesModel ) {
     const  tramiteTemp = {
       ... tramite
     };
 
-    delete  tramiteTemp.id;
+    //delete  tramiteTemp.id;
 
-    return this.http.put(`${ this.url }/ tramite/${  tramite.id }.json`,  tramiteTemp);
+    return this.http.post(`${ this.url }/ tramite/${  tramite.id }.json`,  tramiteTemp)
+    .pipe(
+      map( (resp: any) => {
+        
+        return  resp;
+      })
+    );
+
+    
+  }
+
+  actualizarTramiteadj(tramite:  FormData) {
+    const  tramiteTemp = {
+      ... tramite
+    };
+
+    //delete  tramiteTemp.id;
+
+    return this.http.put(`${ this.url }/ tramite/`,  tramite);
 
 
   }
+
 
   borrarTramite( id: string ) {
 
@@ -61,7 +80,7 @@ export class TramiteService {
 
   private crearArregloTramite(  tramiteObj: object ) {
 
-    const  tramites:  Tramites[] = [];
+    const  tramites:  TramitesModel[] = [];
     
     
     
