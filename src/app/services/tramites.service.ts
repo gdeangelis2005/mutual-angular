@@ -43,14 +43,11 @@ export class TramiteService {
     
   }
 
-  actualizarTramiteadj(tramite:  FormData) {
-    const  tramiteTemp = {
-      ... tramite
-    };
-
+  actualizarTramiteadj(files:  FormData) {
+   
     //delete  tramiteTemp.id;
 
-    return this.http.put(`${ this.url }/ tramite/`,  tramite);
+    return this.http.put(`${ this.url }/ tramite/`,  files);
 
 
   }

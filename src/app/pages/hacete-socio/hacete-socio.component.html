@@ -1,9 +1,33 @@
 
+
+<br>
+<!--<div class="jumbotron jumbotron-fluid animated fadeIn fast"> -->
+  <div class="container"> 
+       <div style="text-align: left;">
+           <h6 class="text-Left">
+            Requisitos para Asoiarce a la Mutual Policial Rio Negro
+            ASOCIARSE A LA MUTUAL (o ser socio)
+            3 últimos recibos de sueldo
+            3 últimos movimientos bancarios
+            Constancia de CBU
+            DNI
+            Impuesto o servicio a nombre del solicitante
+            Comunicarse a los teléfonos 2920 421410 o por e-mail: secretariamupol@gmail.com, de Lunes a Viernes de 9.30 a 14 hs.
+            Complete el formulario y sera contactado por la institución.-
+          </h6>
+
+      </div>
+   </div>
+
+<!-- </div> -->
+
+
 <div class="row animated fadeIn faster">
   <div class="col">
     <hr>
     <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
-            
+
+      
       <div class="form-group row ">
           <label class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">
@@ -40,6 +64,7 @@
     </div>
 
   
+   
       <div class="form-group row ">
         <label class="col-sm-2 col-form-label">Direccion</label>
         <div class="col-sm-10">
@@ -57,7 +82,7 @@
             </div>
 
       </div>
-
+    
     <div class="form-group row ">
       <label class="col-sm-2 col-form-label">Localidad</label>
       <div class="col-sm-10">
@@ -75,10 +100,11 @@
           </div>
      </div>
 
-
+    
+    
      <div class="form-group row ">
             <label class="col-sm-2 col-form-label">Telefono</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
       
           <input type="text"
                  class="form-control"
@@ -93,11 +119,9 @@
       </div>
     </div>
 
-
-
-    <div class="form-group row ">
+      <div class="form-group row ">
           <label class="col-sm-2 col-form-label">Email</label>
-     <div class="col-sm-10">
+     <div class="col-sm-4">
 
         <input type="text"
                class="form-control"
@@ -112,12 +136,11 @@
        </div>
 
       </div>
+    
 
       <div class="form-group row ">
         <label class="col-sm-2 col-form-label">Estado Civil</label>
       <div class="col-sm-10">
-
-
 
       <div class="form-check form-check-inline">
         
@@ -125,7 +148,7 @@
                type="radio"
                name="estadocivil"
                [class.is-invalid]="estadocivilNoValido"
-               value="M"
+               value="C"
                formControlName="estadocivil"
                
                >
@@ -139,7 +162,7 @@
                type="radio"
                [class.is-invalid]="estadocivilNoValido"
                name="estadocivil"
-               value="F"
+               value="S"
                formControlName="estadocivil"         
                
                >
@@ -151,11 +174,12 @@
       </small>
 
       </div>
-     </div>
+    </div>
   
-  <div class="form-group row ">
+  <div class="form-group row "> 
+
     <label class="col-sm-2 col-form-label">Cantidad Hijos</label>
-    <div class="col-sm-10">
+    <div class="col-sm-4">
 
   <input type="text"
          class="form-control"
@@ -175,16 +199,18 @@
         <label class="col-sm-2 col-form-label">Observaciones</label>
         <div class="col-sm-10">
 
-         <input type="text"
+         <textarea
            class="form-control"
+           rows="3"
+           cols="70" 
            name="observaciones"
            placeholder="Observaciones"
-           formControlName="observaciones">
-         
+           formControlName="observaciones"
+           ></textarea>
+              
         </div>
       </div>
-
-
+     
       <hr>
       <div class="form-group text-center">
         <button type="submit"

@@ -7,19 +7,13 @@ export class HaceteSocioModel {
     email: string;
     direccion: string;
     localidad: string;
-    estadocivil: string;
     cbu: string;
     observaciones: string;
-    estado: boolean;
-    fechaPedido : Date;
-    fechaAlta: Date;
-    fechaRechazo: Date;
+    estadocivil: string;
+    cantidadHijos: number;
     motivoRechazo: string;
-    cantidadHijos: string;
 
     constructor() {
-        this.estado = false;
-        this.estado = false;
         this.id = "";
         this.nombre ="";
         this.apellido = "";
@@ -31,11 +25,8 @@ export class HaceteSocioModel {
         this.observaciones = "";
         this.estadocivil= "";
 
-        this.fechaPedido= new Date('01/01/1901');
-        this.fechaAlta= new Date('01/01/1901');
-        this.fechaRechazo= new Date('01/01/1901');
         this.motivoRechazo= "";
-        this.cantidadHijos= "";
+        this.cantidadHijos= 0;
     
 
     }

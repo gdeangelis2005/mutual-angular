@@ -347,7 +347,8 @@ export class TramitesComponent implements OnInit {
               
               
              // reader.readAsDataURL(file);
-          }
+     
+            }
         }
       }
     }

@@ -109,12 +109,12 @@ export class HaceteSocioComponent implements OnInit {
     const telefono = this.forma.get('telefono');
     this.haceteSocio.telefono=(telefono !== null ? telefono.value :  ' '); 
     const cantidadHijos = this.forma.get('cantidadHijos');
-    this.haceteSocio.cantidadHijos=(cantidadHijos != null ? cantidadHijos.value :  ' ');
+    this.haceteSocio.cantidadHijos=(cantidadHijos != null ? cantidadHijos.value :  0);
     this.haceteSocio.cbu="";
-    this.haceteSocio.estado=false; 
-    this.haceteSocio.fechaPedido= new Date();
-    this.haceteSocio.fechaAlta= new Date('01/01/1901');
-    this.haceteSocio.fechaRechazo= new Date('01/01/1901');
+ //   this.haceteSocio.estado=0; 
+//    this.haceteSocio.fechaPedido= new Date();
+//    this.haceteSocio.fechaAlta= new Date('01/01/1901');
+//    this.haceteSocio.fechaRechazo= new Date('01/01/1901');
     this.haceteSocio.motivoRechazo="";
 
 

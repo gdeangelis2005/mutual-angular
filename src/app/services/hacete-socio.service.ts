@@ -9,23 +9,64 @@ import { map, delay } from 'rxjs/operators';
 })
 export class HaceteSocioService {
 
-  private url = 'https://mutual-4008a-default-rtdb.firebaseio.com';
+  private url1 = 'https://mutual-4008a-default-rtdb.firebaseio.com';
+  //private url = 'https://localhost:5001/carnet';
+  private url = 'https://www.mupolrionegro.org.ar:4434/carnet';
 
 
   constructor( private http: HttpClient ) { }
 
 
   crearHaceteSocio(haceteSocio:  HaceteSocioModel ) {
+    console.log(haceteSocio);
+    //return this.http.post(`${ this.url }/haceteSocio.json`,  haceteSocio)
+//      return this.http.post(this._api.apiUrl + 'token', body, options)
+//          .map((response: Response) => {
+//              
+//          });
+  
 
-    return this.http.post(`${ this.url }/haceteSocio.json`,  haceteSocio)
-            .pipe(
+//return this.http.post(`${ this.url}/haceteSocio`, haceteSocio,{
+    //    headers: {
+    //        'Content-Type': 'application/json',
+    //        responseType : 'text'
+    //             }
+    
+
+return this.http.post(`${ this.url }/haceteSocio`, haceteSocio)
+             .pipe(
               map( (resp: any) => {
-                haceteSocio.id = resp.name;
-                return  haceteSocio;
-              })
+                console.log(resp);    
+                return  resp;
+             })
             );
 
-  }  actualizarHaceteSocio(haceteSocio:  HaceteSocioModel ) {
+  }
+  
+  //return $http.post(url, $httpParamSerializer(datos), {
+  //  headers: {
+  //      'Content-Type': 'application/json'
+  //  }
+// });
+//var parametros = JSON.stringify({username:user_email, password:user_password});    
+
+//return $http.post(url, parametros, {
+//        headers: {
+//            'Content-Type': 'application/json; charset=utf-8'
+//        }
+//    });
+
+//login(username: string, password: string): Observable<boolean> {
+//  let headers = new Headers({ 'Content-Type': 'application/json' });
+//  let options = new RequestOptions({ headers: headers });
+//  let body = JSON.stringify({ username: username, password: password });
+//      return this.http.post(this._api.apiUrl + 'token', body, options)
+//          .map((response: Response) => {
+//              
+//          });
+//  }
+  
+  actualizarHaceteSocio(haceteSocio:  HaceteSocioModel ) {
 
     const  haceteSocioTemp = {
       ... haceteSocio
